@@ -1,0 +1,42 @@
+.quiz__item {
+  &--true {
+    padding: 3px 8px;
+    background-color: rgb(8, 216, 8);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
+    color: white;
+  }
+  &--false {
+    padding: 3px 8px;
+    background-color: rgb(245, 68, 68);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
+    color: white;
+  }
+  &--answer {
+    & label {
+      font-size: 18px;
+    }
+  }
+  &--selected {
+    color: red;
+  }
+  &--result {
+    color: green;
+    font-style: italic;
+  }
+}
+
+.link-btn {
+  display: inline;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: underline;
+  &:hover {
+    background-color: transparent;
+    color: rgb(42, 64, 255);
+  }
+}

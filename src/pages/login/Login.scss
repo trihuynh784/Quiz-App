@@ -1,0 +1,32 @@
+.container {
+  margin: auto;
+  max-width: 1140px;
+}
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 60px;
+  border-radius: 10px;
+}
+.login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 80px 0;
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  &__form form {
+    display: flex;
+    flex-direction: column;
+    & input {
+      border: 1px solid #f1f1f1e0;
+      outline: none;
+      margin: 5px 0; 
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+  }
+}

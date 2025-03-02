@@ -9,6 +9,7 @@ function PageResult() {
   const [totalTrue, setTotalTrue] = useState(0);
   const [totalFalse, setTotalFalse] = useState(0);
   const [totalQuestion, setTotalQuestion] = useState(0);
+  const [topicId, setTopicId] = useState(0);
   const [dataAnswers, setDataAnswers] = useState({});
 
   useEffect(() => {
@@ -30,16 +31,20 @@ function PageResult() {
   });
 
   useEffect(() => {
-    if(dataAnswers.length > 0) {
+    if (dataAnswers.length > 0) {
       const tolQues = dataAnswers.length;
-      const tolTrue = dataAnswers.filter(item => item.answer === item.correctAnswer).length;
+      const tolTrue = dataAnswers.filter(
+        (item) => item.answer === item.correctAnswer
+      ).length;
       const tolFalse = tolQues - tolTrue;
-    
+      const topId = dataAnswers.topicId;
+
       setTotalQuestion(tolQues);
       setTotalTrue(tolTrue);
       setTotalFalse(tolFalse);
+      setTopicId(topId);
     }
-  })
+  });
 
   return (
     <div className="container">
@@ -47,7 +52,7 @@ function PageResult() {
       <p>
         Đúng: <strong>{totalTrue}</strong> | Sai: <strong>{totalFalse}</strong>{" "}
         | Tổng số câu: <strong>{totalQuestion}</strong> | Tỷ lệ đúng:{" "}
-        <strong>{totalTrue / totalQuestion * 100}%</strong>
+        <strong>{(totalTrue / totalQuestion) * 100}%</strong>
       </p>
       {dataAnswers.length > 0 &&
         dataAnswers.map((item, index) => (
@@ -87,9 +92,11 @@ function PageResult() {
             })}
           </div>
         ))}
-      <Link className="link link-btn" to={"/quiz/" + params.id}>
-        Làm lại
-      </Link>
+      {dataAnswers.length && (
+        <Link className="link link-btn" to={"/quiz/" + topicId}>
+          Làm lại
+        </Link>
+      )}
     </div>
   );
 }

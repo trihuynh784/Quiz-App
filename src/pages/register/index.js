@@ -62,7 +62,7 @@ function PageRegister() {
                   type="password"
                   name="password"
                 />
-                <button>Login</button>
+                <button>Register</button>
               </form>
             </div>
           </div>

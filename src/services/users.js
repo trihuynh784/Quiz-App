@@ -6,7 +6,7 @@ export const login = async (email, password) => {
 }
 
 export const register = async (options) => {
-  const result = post("users", options);
+  const result = await post("users", options);
   return result;
 }
 

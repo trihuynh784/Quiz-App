@@ -37,14 +37,18 @@ function PageResult() {
         (item) => item.answer === item.correctAnswer
       ).length;
       const tolFalse = tolQues - tolTrue;
-      const topId = dataAnswers.topicId;
 
       setTotalQuestion(tolQues);
       setTotalTrue(tolTrue);
       setTotalFalse(tolFalse);
-      setTopicId(topId);
     }
-  });
+  }, [dataAnswers]);
+
+  useEffect(() => {
+    if (dataAnswers.length > 0) {
+      setTopicId(dataAnswers[0].topicId);
+    }
+  }, [dataAnswers]);
 
   return (
     <div className="container">

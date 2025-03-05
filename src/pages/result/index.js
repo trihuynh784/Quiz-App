@@ -28,7 +28,7 @@ function PageResult() {
       setDataAnswers(result);
     };
     fetchApi();
-  });
+  }, []);
 
   useEffect(() => {
     if (dataAnswers.length > 0) {
